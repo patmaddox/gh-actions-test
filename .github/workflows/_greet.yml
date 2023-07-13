@@ -6,6 +6,8 @@ on:
       environment:
         required: true
         type: string
+    paths:
+      - greetings.md
 
 jobs:
   greet:
