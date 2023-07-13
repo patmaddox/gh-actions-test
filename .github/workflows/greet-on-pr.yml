@@ -1,0 +1,13 @@
+name: greet on PR
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  greet:
+    environment: staging
+    runs-on: ubuntu-latest
+    steps:
+      - name: greet someone
+        run: echo "${{ vars.GREETING }}"
