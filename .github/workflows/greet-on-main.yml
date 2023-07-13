@@ -6,9 +6,13 @@ on:
       - main
 
 jobs:
-  greet:
-    environment: prod
-    runs-on: ubuntu-latest
-    steps:
-      - name: greet someone
-        run: echo "${{ vars.GREETING }}"
+  greet_staging:
+    uses: ./.github/workflows/_greet.yml
+    with:
+      environment: staging
+
+  greet_prod:
+    needs: greet_staging
+    uses: ./.github/workflows/_greet.yml
+    with:
+      environment: prod
