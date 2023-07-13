@@ -6,8 +6,6 @@ on:
 
 jobs:
   greet:
-    environment: staging
-    runs-on: ubuntu-latest
-    steps:
-      - name: greet someone
-        run: echo "${{ vars.GREETING }}"
+    uses: ./.github/workflows/_greet.yml
+    with:
+      environment: staging
